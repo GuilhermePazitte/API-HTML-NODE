@@ -6,7 +6,7 @@
     <title>Login - Controle de Gastos</title>
 </head>
 
-<body>
+<body class = "centralize">
     <form>
         <div class = "form-field">
             <div><label>E-mail</label></div>
@@ -23,16 +23,31 @@
             <button type="button" class="clear" id ="recover-password-button" disabled="true" >Recuperar senha</button>
         </div>
         <div>
-            <button type ="button" id="login-button" class="solid" disabled="true" >Entrar</button>
+            <button type ="button" id="login-button" class="solid" disabled="true" onclick="login()" >Entrar</button>
         </div>
         <div>
-            <button type = "button" class="outline">Registrar</button>
+            <button type = "button" id="register-button" class="outline" onclick="register()">Registrar</button>
         </div>
     </form>
 </body>
 
+
 <script src="index.js"></script>
 <script src="validations.js"></script>
+<script src="loading.js"></script>
+<script src = "https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js"></script>
+<script src = "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth-compat.js"></script>
+<script>
+     const firebaseConfig = {
+    apiKey: "AIzaSyB0mKDuaTKJTTQVahYGP0MnkV3d56eIYoo",
+    authDomain: "controle-de-gastos-ce33c.firebaseapp.com",
+    projectId: "controle-de-gastos-ce33c",
+    storageBucket: "controle-de-gastos-ce33c.firebasestorage.app",
+    messagingSenderId: "245553605514",
+    appId: "1:245553605514:web:893e7bb95260f880ca7673"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
 
 <link rel="stylesheet" href="index.css"/>
 <link rel="stylesheet" href="global.css"/>

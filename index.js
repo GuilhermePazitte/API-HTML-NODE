@@ -9,6 +9,32 @@ function onChangePassword(){
 
 }
 
+function login(){
+
+    showLoading();
+    firebase.auth().signInWithEmailAndPassword(form.email().value, form.password().value)
+    .then(response =>{
+        hideLoading();
+        window.location.href = "pages/home/home.html"
+    }).catch(error =>{
+        hideLoading();
+        alert(getErrorMessage(error));
+    })
+
+}
+
+function getErrorMessage(error){
+    if(error.code == "auth/invalid-credential"){
+        return "Credencial Inválida";
+    }
+    return error.message;
+}
+
+function register(){
+    showLoading();
+    //window.location.href = "pages/register/register.hmtl";
+}
+
 function toggleEmailErrors(){
     const email= form.email().value;
 
